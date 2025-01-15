@@ -3,299 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daxon - Cyber Security Solutions</title>
-    <!-- Add Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Add Font Awesome for icons -->
+    <title>DAXON - Cyber Security</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Orbitron', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-            color: #e5e5e5;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6f00d9;
+            --secondary: #00ff88;
+            --dark: #0a0a0a;
+            --glow: 0 0 10px var(--primary);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: white;
+            min-height: 100vh;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        /* Enhanced Header */
-        header {
-            background: linear-gradient(135deg, #440076, #6f00d9);
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        header h1 {
-            font-size: 4.5rem;
-            color: #fff;
-            text-shadow: 0 0 10px #fff, 0 0 20px #6f00d9;
-            animation: neon-glow 3s infinite alternate, slideDown 1.5s ease-out;
-            margin: 0;
-        }
-
-        header p {
-            color: #ccc;
-            font-size: 1.8rem;
-            margin-top: 20px;
-            animation: slideUp 1.5s ease-out;
-            opacity: 0;
-            animation-fill-mode: forwards;
-            animation-delay: 0.5s;
-        }
-
-        /* Enhanced Navigation */
-        nav {
-            background: rgba(13, 13, 13, 0.95);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            animation: slideDown 0.5s ease-out;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            margin: 0 30px;
-            font-size: 1.2rem;
-            position: relative;
-            transition: all 0.3s ease;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            color: #6f00d9;
-            text-shadow: 0 0 10px #6f00d9;
-            background: rgba(111, 0, 217, 0.1);
-        }
-
-        /* Enhanced Features Section */
-        .feature {
-            background: rgba(34, 34, 34, 0.9);
-            border: 1px solid #333;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .feature.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .feature:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(111, 0, 217, 0.4);
-            background: rgba(34, 34, 34, 0.95);
-        }
-
-        .feature i {
-            font-size: 2.5rem;
-            color: #6f00d9;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
-        }
-
-        /* New Particle Effect */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        .cyber-lines {
+            position: fixed;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 95%, rgba(111, 0, 217, 0.1) 95%),
+                linear-gradient(transparent 95%, rgba(111, 0, 217, 0.1) 95%);
+            background-size: 50px 50px;
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        .glitch-container {
+            position: relative;
+            text-align: center;
+            padding: 20vh 1rem;
+        }
+
+        .glitch {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 0 0 10px var(--primary);
+            animation: glitch 2s infinite;
+            color: white;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-item {
+            background: rgba(111, 0, 217, 0.1);
+            border: 1px solid rgba(111, 0, 217, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(111, 0, 217, 0.2);
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), #9500ff);
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(111, 0, 217, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(111, 0, 217, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(111, 0, 217, 0); }
+        }
+
+        .download-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            from { transform: translateX(-100%) rotate(45deg); }
+            to { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .discord-button {
+            background: #5865F2;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .discord-button:hover {
+            transform: translateY(-5px);
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(88, 101, 242, 0.9);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            transform: translateX(200%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        /* Sound visualizer */
+        .visualizer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 2px;
+            padding: 10px;
             pointer-events: none;
         }
 
-        .particle {
-            position: absolute;
-            background: rgba(111, 0, 217, 0.5);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
+        .visualizer-bar {
+            width: 3px;
+            background: var(--primary);
+            opacity: 0.5;
+            transform-origin: bottom;
         }
 
-        /* New Animations */
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(100px, -100px);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Enhanced Contact Section */
-        #contact {
-            background: linear-gradient(135deg, #1a1a1a, #440076);
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            animation: fadeIn 1s ease-out;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            header h1 {
+            .glitch {
                 font-size: 3rem;
             }
             
-            header p {
-                font-size: 1.3rem;
-            }
-
-            nav a {
-                margin: 0 15px;
-                font-size: 1rem;
+            .feature-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="particles">
-        <!-- Particles will be added via JavaScript -->
+    <div class="cyber-lines"></div>
+    <div class="visualizer">
+        <!-- Will be populated by JS -->
     </div>
-    <h1>Welcome to Daxon</h1>
-    <p>The Future of Fud crypter</p>
-</header>
 
-<nav>
-    <a href="#features"><i class="fas fa-shield-alt"></i> Features</a>
-    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="#legal"><i class="fas fa-gavel"></i> Legal</a>
-</nav>
+    <div class="glitch-container">
+        <h1 class="glitch">DAXON</h1>
+    </div>
 
-<div class="container">
-    <section id="features">
-        <h2>Explore Features</h2>
-        <div class="features">
-            <div class="feature">
-                <i class="fas fa-lock"></i>
-                <h3>🧩 Features Added & Updated</h3>
-                <p>🔛 Support Win 11/10 
-               </p>
+    <div class="content">
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>🧩 Advanced Protection</h3>
+                <p>Complete Win 11/10 Support</p>
             </div>
-            <div class="feature">
-                <i class="fas fa-eye-slash"></i>
-                <h3>🔛 60+ AV Site Block</h3>
-                <p>🔛 Hide WD Exclusion.</p>
+            <div class="feature-item">
+                <h3>🔛 Network Defense</h3>
+                <p>60+ AV Site Block</p>
             </div>
-            <div class="feature">
-                <i class="fas fa-sliders-h"></i>
-                <h3>🔛 Self Delete Loader</h3>
-                <p>🔛 Process Hollowing Loader.</p>
+            <div class="feature-item">
+                <h3>🔒 Process Security</h3>
+                <p>Self Delete Loader</p>
             </div>
         </div>
-    </section>
-</div>
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <div class="contact-form">
-        <p>For inquiries, reach out on <span>Discord: editsmeed</span></p>
-        <i class="fab fa-discord fa-3x" style="color: #6f00d9; margin-top: 20px;"></i>
+        <a href="https://github.com/aliyoyos123/Comp/raw/refs/heads/main/gaas.rar" class="download-button" id="downloadBtn">
+            DOWNLOAD NOW
+        </a>
+
+        <br>
+
+        <button class="discord-button" id="discordBtn">
+            <i class="fab fa-discord"></i>
+            Add on Discord: editsmeed
+        </button>
     </div>
-</section>
 
-<footer>
-    <p>&copy; 2025 Daxon - All Rights Reserved</p>
-</footer>
+    <div class="notification" id="notification">
+        Discord ID copied to clipboard: editsmeed
+    </div>
 
-<script>
-// Add particle effect
-function createParticles() {
-    const particlesContainer = document.querySelector('.particles');
-    for (let i = 0; i < 20; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.width = Math.random() * 5 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
-        particle.style.animationDelay = (Math.random() * 5) + 's';
-        particlesContainer.appendChild(particle);
-    }
-}
+    <audio id="hoverSound" preload="auto">
+        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAABQAFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/+MYxAAAAANIAAAAAExBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV/+MYxDsAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV" type="audio/mpeg">
+    </audio>
+    
+    <audio id="downloadSound" preload="auto">
+        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAABQAFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/+MYxAAAAANIAAAAAExBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV/+MYxDsAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV" type="audio/mpeg">
+    </audio>
 
-// Animate features on scroll
-function animateOnScroll() {
-    const features = document.querySelectorAll('.feature');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
+    <script>
+        // Create visualizer bars
+        const visualizer = document.querySelector('.visualizer');
+        for(let i = 0; i < 50; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'visualizer-bar';
+            visualizer.appendChild(bar);
+        }
+
+        // Animate visualizer bars
+        function animateVisualizer() {
+            const bars = document.querySelectorAll('.visualizer-bar');
+            bars.forEach(bar => {
+                const height = Math.random() * 100;
+                bar.style.height = `${height}%`;
+                bar.style.transition = 'height 0.2s ease';
+            });
+        }
+
+        setInterval(animateVisualizer, 200);
+
+        // Sound effects and button functionality
+        const hoverSound = document.getElementById('hoverSound');
+        const downloadSound = document.getElementById('downloadSound');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const discordBtn = document.getElementById('discordBtn');
+        const notification = document.getElementById('notification');
+
+        // Hover sound effect
+        [downloadBtn, discordBtn].forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                hoverSound.currentTime = 0;
+                hoverSound.play();
+            });
         });
-    }, { threshold: 0.1 });
 
-    features.forEach(feature => {
-        observer.observe(feature);
-    });
-}
+        // Download button click
+        downloadBtn.addEventListener('click', () => {
+            downloadSound.currentTime = 0;
+            downloadSound.play();
+        });
 
-// Initialize animations
-document.addEventListener('DOMContentLoaded', () => {
-    createParticles();
-    animateOnScroll();
-});
-</script>
+        // Discord button functionality
+        discordBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText('editsmeed');
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        });
 
+        // Create matrix rain effect
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.zIndex = '-1';
+        canvas.style.opacity = '0.1';
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        let w, h;
+
+        function setCanvasSize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+
+        setCanvasSize();
+        window.addEventListener('resize', setCanvasSize);
+
+        const cols = Math.floor(w / 20);
+        const ypos = Array(cols).fill(0);
+
+        ctx.fillStyle = '#0f0';
+        ctx.fillRect(0, 0, w, h);
+
+        function matrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, w, h);
+            ctx.fillStyle = '#0f0';
+            ctx.font = '15pt monospace';
+
+            ypos.forEach((y, ind) => {
+                const text = String.fromCharCode(Math.random() * 128);
+                const x = ind * 20;
+                ctx.fillText(text, x, y);
+                if (y > 100 + Math.random() * 10000) ypos[ind] = 0;
+                else ypos[ind] = y + 20;
+            });
+        }
+
+        setInterval(matrix, 50);
+    </script>
 </body>
 </html>
