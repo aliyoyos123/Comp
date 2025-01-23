@@ -1,353 +1,216 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAXON - Cyber Security</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ShieldCheck, Lock, Server, Code, FileShield, Cpu } from 'lucide-react';
 
-        :root {
-            --primary: #6f00d9;
-            --secondary: #00ff88;
-            --dark: #0a0a0a;
-            --glow: 0 0 10px var(--primary);
-        }
+const SoftwareProtectionPlatform = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark);
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
 
-        .cyber-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(90deg, transparent 95%, rgba(111, 0, 217, 0.1) 95%),
-                linear-gradient(transparent 95%, rgba(111, 0, 217, 0.1) 95%);
-            background-size: 50px 50px;
-            z-index: -1;
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(50px); }
-        }
-
-        .glitch-container {
-            position: relative;
-            text-align: center;
-            padding: 20vh 1rem;
-        }
-
-        .glitch {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            position: relative;
-            text-shadow: 0 0 10px var(--primary);
-            animation: glitch 2s infinite;
-            color: white;
-        }
-
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
-        }
-
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .feature-item {
-            background: rgba(111, 0, 217, 0.1);
-            border: 1px solid rgba(111, 0, 217, 0.3);
-            border-radius: 10px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 20px rgba(111, 0, 217, 0.2);
-        }
-
-        .download-button {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary), #9500ff);
-            color: white;
-            padding: 1.5rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            margin: 2rem 0;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(111, 0, 217, 0.4); }
-            70% { box-shadow: 0 0 0 20px rgba(111, 0, 217, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(111, 0, 217, 0); }
-        }
-
-        .download-button::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            from { transform: translateX(-100%) rotate(45deg); }
-            to { transform: translateX(100%) rotate(45deg); }
-        }
-
-        .discord-button {
-            background: #5865F2;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .discord-button:hover {
-            transform: translateY(-5px);
-        }
-
-        .notification {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: rgba(88, 101, 242, 0.9);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            transform: translateX(200%);
-            transition: transform 0.3s ease;
-        }
-
-        .notification.show {
-            transform: translateX(0);
-        }
-
-        /* Sound visualizer */
-        .visualizer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            gap: 2px;
-            padding: 10px;
-            pointer-events: none;
-        }
-
-        .visualizer-bar {
-            width: 3px;
-            background: var(--primary);
-            opacity: 0.5;
-            transform-origin: bottom;
-        }
-
-        @media (max-width: 768px) {
-            .glitch {
-                font-size: 3rem;
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="cyber-lines"></div>
-    <div class="visualizer">
-        <!-- Will be populated by JS -->
-    </div>
-
-    <div class="glitch-container">
-        <h1 class="glitch">DAXON</h1>
-    </div>
-
-    <div class="content">
-        <div class="feature-grid">
-            <div class="feature-item">
-                <h3>🧩 Advanced Protection</h3>
-                <p>Complete Win 11/10 Support</p>
-            </div>
-            <div class="feature-item">
-                <h3>🔛 Network Defense</h3>
-                <p>60+ AV Site Block</p>
-            </div>
-            <div class="feature-item">
-                <h3>🔒 Process Security</h3>
-                <p>Self Delete Loader</p>
-            </div>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans overflow-x-hidden">
+      {/* Navigation */}
+      <motion.nav 
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: "spring" }}
+        className="fixed top-0 left-0 right-0 z-50 bg-gray-800 bg-opacity-90 backdrop-blur-md"
+      >
+        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center">
+            <svg 
+              className="h-10 w-10 mr-3 animate-pulse"
+              viewBox="0 0 100 100" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{stopColor:'#38B2AC', stopOpacity:1}} />
+                  <stop offset="100%" style={{stopColor:'#3182CE', stopOpacity:1}} />
+                </linearGradient>
+              </defs>
+              <path 
+                d="M50 10 
+                   Q70 30, 70 50 
+                   A20 20 0 1 1 50 30 
+                   Q30 30, 50 10 
+                   Z" 
+                fill="url(#securityGradient)" 
+                stroke="#FFFFFF" 
+                strokeWidth="3"
+              />
+              <path 
+                d="M40 50 L50 70 L60 50 Z" 
+                fill="#FFFFFF" 
+              />
+            </svg>
+            <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500">
+              CodeShield Pro
+            </span>
+          </div>
+          <motion.a 
+            href="#download"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-teal-500 to-blue-600 text-white px-6 py-2 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+          >
+            Get Protection
+          </motion.a>
         </div>
+      </motion.nav>
 
-        <a href="https://github.com/aliyoyos123/Comp/raw/refs/heads/main/gaas.rar" class="download-button" id="downloadBtn">
-            DOWNLOAD NOW
-        </a>
+      {/* Hero Section */}
+      <motion.header 
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="relative min-h-screen flex items-center justify-center text-center px-4 pt-24"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800 opacity-70"></div>
+        <motion.div 
+          variants={itemVariants}
+          className="relative z-10 max-w-4xl"
+        >
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, type: "spring" }}
+            className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500"
+          >
+            Advanced Executable Protection
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-xl mb-8 text-gray-300"
+          >
+            Cutting-edge technology to safeguard your software from reverse engineering, unauthorized modifications, and intellectual property theft.
+          </motion.p>
+          <motion.a 
+            href="#features"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block bg-gradient-to-r from-teal-500 to-blue-600 text-white px-8 py-3 rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+          >
+            Explore Protection Methods
+          </motion.a>
+        </motion.div>
+      </motion.header>
 
-        <br>
+      {/* Features Section */}
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+        className="py-24 bg-gray-800"
+      >
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500">
+            Comprehensive Software Protection
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: ShieldCheck,
+                color: "text-teal-400",
+                title: "Advanced Obfuscation",
+                description: "Sophisticated algorithms that make reverse engineering practically impossible."
+              },
+              {
+                icon: Lock,
+                color: "text-blue-500",
+                title: "Code Integrity",
+                description: "Prevent unauthorized modifications and tampering of your executable files."
+              },
+              {
+                icon: Server,
+                color: "text-purple-500",
+                title: "Multi-Layer Protection",
+                description: "Comprehensive security measures across multiple protection vectors."
+              }
+            ].map((feature, index) => (
+              <motion.div 
+                key={index}
+                variants={itemVariants}
+                className="bg-gray-700 p-6 rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 transform"
+              >
+                <feature.icon className={`mx-auto mb-4 ${feature.color}`} size={60} />
+                <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>
+                <p className="text-gray-300">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
-        <button class="discord-button" id="discordBtn">
-            <i class="fab fa-discord"></i>
-            Add on Discord: editsmeed
-        </button>
+      {/* Download Section */}
+      <section id="download" className="py-24 bg-gray-900">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500"
+          >
+            Secure Your Software Now
+          </motion.h2>
+          
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-gray-800 p-8 rounded-xl shadow-2xl"
+          >
+            <a 
+              href="https://github.com/aliyoyos123/D/raw/refs/heads/main/MoonCrypter.rar"
+              className="block w-full bg-gradient-to-r from-teal-500 to-blue-600 text-white py-4 rounded-full text-lg font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            >
+              Download CodeShield Pro
+            </a>
+            <p className="mt-4 text-gray-400 text-sm">
+              Comprehensive software protection solution - Free for developers
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 py-8 text-gray-400">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p>&copy; 2024 CodeShield Pro. All rights reserved.</p>
+          <div className="mt-4 space-x-4">
+            <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
+            <a href="#" className="hover:text-teal-400 transition">Terms of Service</a>
+            <a href="#" className="hover:text-teal-400 transition">Contact</a>
+          </div>
+        </div>
+      </footer>
     </div>
+  );
+};
 
-    <div class="notification" id="notification">
-        Discord ID copied to clipboard: editsmeed
-    </div>
-
-    <audio id="hoverSound" preload="auto">
-        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAABQAFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/+MYxAAAAANIAAAAAExBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV/+MYxDsAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV" type="audio/mpeg">
-    </audio>
-    
-    <audio id="downloadSound" preload="auto">
-        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAABQAFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/+MYxAAAAANIAAAAAExBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV/+MYxDsAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV" type="audio/mpeg">
-    </audio>
-
-    <script>
-        // Create visualizer bars
-        const visualizer = document.querySelector('.visualizer');
-        for(let i = 0; i < 50; i++) {
-            const bar = document.createElement('div');
-            bar.className = 'visualizer-bar';
-            visualizer.appendChild(bar);
-        }
-
-        // Animate visualizer bars
-        function animateVisualizer() {
-            const bars = document.querySelectorAll('.visualizer-bar');
-            bars.forEach(bar => {
-                const height = Math.random() * 100;
-                bar.style.height = `${height}%`;
-                bar.style.transition = 'height 0.2s ease';
-            });
-        }
-
-        setInterval(animateVisualizer, 200);
-
-        // Sound effects and button functionality
-        const hoverSound = document.getElementById('hoverSound');
-        const downloadSound = document.getElementById('downloadSound');
-        const downloadBtn = document.getElementById('downloadBtn');
-        const discordBtn = document.getElementById('discordBtn');
-        const notification = document.getElementById('notification');
-
-        // Hover sound effect
-        [downloadBtn, discordBtn].forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                hoverSound.currentTime = 0;
-                hoverSound.play();
-            });
-        });
-
-        // Download button click
-        downloadBtn.addEventListener('click', () => {
-            downloadSound.currentTime = 0;
-            downloadSound.play();
-        });
-
-        // Discord button functionality
-        discordBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            navigator.clipboard.writeText('editsmeed');
-            notification.classList.add('show');
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        });
-
-        // Create matrix rain effect
-        const canvas = document.createElement('canvas');
-        canvas.style.position = 'fixed';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
-        canvas.style.zIndex = '-1';
-        canvas.style.opacity = '0.1';
-        document.body.appendChild(canvas);
-
-        const ctx = canvas.getContext('2d');
-        let w, h;
-
-        function setCanvasSize() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-        }
-
-        setCanvasSize();
-        window.addEventListener('resize', setCanvasSize);
-
-        const cols = Math.floor(w / 20);
-        const ypos = Array(cols).fill(0);
-
-        ctx.fillStyle = '#0f0';
-        ctx.fillRect(0, 0, w, h);
-
-        function matrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, w, h);
-            ctx.fillStyle = '#0f0';
-            ctx.font = '15pt monospace';
-
-            ypos.forEach((y, ind) => {
-                const text = String.fromCharCode(Math.random() * 128);
-                const x = ind * 20;
-                ctx.fillText(text, x, y);
-                if (y > 100 + Math.random() * 10000) ypos[ind] = 0;
-                else ypos[ind] = y + 20;
-            });
-        }
-
-        setInterval(matrix, 50);
-    </script>
-</body>
-</html>
+export default SoftwareProtectionPlatform;
