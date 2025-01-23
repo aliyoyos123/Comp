@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoonCrypter - Ultimate Cyber Security Solution</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>MoonCrypter - Advanced Cyber Security</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary-color: #00ffff;
-            --secondary-color: #0f1020;
-            --accent-color: #6a11cb;
-            --neon-color: #00ff9c;
+            --primary-color: #0077ff;
+            --secondary-color: #00c6ff;
+            --dark-bg: #0f1020;
+            --light-text: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #0077ff, #00c6ff);
         }
 
         * {
@@ -22,276 +23,242 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
             overflow-x: hidden;
-            perspective: 1000px;
         }
 
-        /* Advanced Background Animation */
-        .bg-animation {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Professional Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
+            z-index: 1000;
+            background: rgba(15, 16, 32, 0.8);
+            backdrop-filter: blur(10px);
         }
 
-        .bg-animation::before,
-        .bg-animation::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(
-                circle at 30% 30%, 
-                rgba(106,17,203,0.3) 0%, 
-                transparent 50%
-            );
-            animation: 
-                bg-pulse 10s infinite alternate,
-                bg-move 15s infinite alternate;
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
 
-        .bg-animation::after {
-            background: radial-gradient(
-                circle at 70% 70%, 
-                rgba(37,117,252,0.2) 0%, 
-                transparent 50%
-            );
-            animation-delay: -5s;
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
         }
 
-        /* Hero Section with Advanced Animations */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            transform-style: preserve-3d;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 10;
             text-align: center;
-            transform: translateZ(50px);
-            opacity: 0;
-            animation: 
-                hero-entrance 1.5s ease-out forwards,
-                float 3s infinite alternate;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 5rem;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        .hero-content h1 {
+            font-size: 4rem;
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: 
-                glitch 2s infinite,
-                neon-glow 3s infinite alternate;
+            margin-bottom: 20px;
         }
 
-        /* Feature Grid with Advanced Animations */
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Features Section */
         .features {
+            background: rgba(255,255,255,0.05);
+            padding: 100px 0;
+        }
+
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            padding: 50px 0;
         }
 
         .feature-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
             padding: 30px;
             text-align: center;
-            transition: all 0.5s ease;
-            border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-            overflow: hidden;
-            transform: scale(0.8);
-            opacity: 0;
-            animation: 
-                feature-entrance 1s ease-out forwards,
-                feature-hover 3s infinite alternate;
+            transition: transform 0.3s ease;
         }
 
-        .feature-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            transform: translateY(-20px);
-            opacity: 0;
-            animation: 
-                icon-float 2s infinite alternate,
-                icon-entrance 1s ease-out forwards 0.5s;
+        .feature-card:hover {
+            transform: translateY(-10px);
         }
 
-        /* Download Section with Particle Effect */
-        .download {
-            position: relative;
-            text-align: center;
-            padding: 100px 0;
-            overflow: hidden;
-        }
-
-        .download-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.5s ease;
-            position: relative;
-            transform: scale(0.9);
-            opacity: 0;
-            animation: 
-                button-entrance 1s ease-out forwards 1s,
-                button-pulse 2s infinite alternate;
-        }
-
-        /* Keyframe Animations */
-        @keyframes hero-entrance {
-            from {
-                opacity: 0;
-                transform: translateY(50px) translateZ(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) translateZ(50px);
-            }
-        }
-
-        @keyframes feature-entrance {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes feature-hover {
+        /* Animations */
+        @keyframes float {
             0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
         }
 
-        @keyframes icon-entrance {
-            from {
-                transform: translateY(-20px);
-                opacity: 0;
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
             }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes icon-float {
-            0% { transform: translateY(-10px); }
-            100% { transform: translateY(10px); }
-        }
-
-        @keyframes button-entrance {
-            from {
-                transform: scale(0.9);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes button-pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-
-        @keyframes bg-pulse {
-            0% { opacity: 0.5; }
-            100% { opacity: 0.7; }
-        }
-
-        @keyframes bg-move {
-            0% { transform: rotate(0deg) scale(1); }
-            100% { transform: rotate(20deg) scale(1.2); }
         }
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
+    <!-- Navigation -->
+    <nav class="navbar container">
+        <div class="logo-container">
+            <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#0077ff;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00c6ff;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path 
+                    d="M50 10 
+                       L80 40 
+                       Q90 50, 80 60 
+                       L50 90 
+                       L20 60 
+                       Q10 50, 20 40 
+                       Z" 
+                    fill="url(#logoGradient)" 
+                    stroke="url(#logoGradient)" 
+                    stroke-width="3"
+                />
+                <circle cx="50" cy="50" r="10" fill="white" />
+            </svg>
+            <h2>MoonCrypter</h2>
+        </div>
+        <div class="nav-links">
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Support</a>
+        </div>
+    </nav>
 
-    <section class="hero">
-        <div class="container hero-content">
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="hero-content">
             <h1>MoonCrypter</h1>
-            <p>Advanced Cyber Protection & System Security</p>
-            <a href="https://github.com/aliyoyos123/D/raw/refs/heads/main/MoonCrypter.rar" class="download-btn">
-                Download Now
-            </a>
+            <p>Advanced Cyber Protection & System Security Solution for Modern Enterprises</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Download Now</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
         </div>
     </section>
 
-    <section class="container">
-        <div class="features">
+    <!-- Features Section -->
+    <section class="features container">
+        <div class="feature-grid">
             <div class="feature-card">
-                <i class="ri-shield-check-line"></i>
-                <h3>Total System Protection</h3>
-                 <p>Advanced security for Windows 10/11</p>
+                <i class="ri-shield-check-line" style="font-size: 3rem; color: var(--primary-color);"></i>
+                <h3>Total Protection</h3>
+                <p>Comprehensive security for Windows systems</p>
             </div>
             <div class="feature-card">
-                <i class="ri-lock-line"></i>
-                <h3>UAC Management</h3>
-                <p>Complete User Access Control</p>
+                <i class="ri-lock-line" style="font-size: 3rem; color: var(--primary-color);"></i>
+                <h3>Advanced UAC</h3>
+                <p>Intelligent user access control mechanisms</p>
             </div>
             <div class="feature-card">
-                <i class="ri-ghost-line"></i>
+                <i class="ri-ghost-line" style="font-size: 3rem; color: var(--primary-color); "></i>
                 <h3>Stealth Mode</h3>
-                <p>Fully Silent Operation</p>
+                <p>Operate without detection for maximum security</p>
             </div>
             <div class="feature-card">
-                <i class="ri-secure-payment-line"></i>
-                <h3>Multi-Layer Protection</h3>
-                <p>60+ AV Site Blocking</p>
+                <i class="ri-secure-payment-line" style="font-size: 3rem; color: var(--primary-color);"></i>
+                <h3>Multi-Layer Defense</h3>
+                <p>Protection against over 60 malicious sites</p>
             </div>
         </div>
     </section>
 
-    <section class="download">
-        <h2>Ready to Secure Your System?</h2>
-        <a href="https://github.com/aliyoyos123/D/raw/refs/heads/main/MoonCrypter.rar" class="download-btn">
-            Download MoonCrypter
-        </a>
+    <section class="download container">
+        <h2>Secure Your System Today!</h2>
+        <a href="#" class="btn btn-primary">Download MoonCrypter</a>
     </section>
 
     <script>
-        const cursor = document.querySelector('.cursor');
-        const follower = document.querySelector('.cursor-follower');
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.pageX + 'px';
-            cursor.style.top = e.pageY + 'px';
-            follower.style.left = e.pageX + 'px';
-            follower.style.top = e.pageY + 'px';
-        });
-
-        document.addEventListener('click', () => {
-            cursor.classList.add('click');
-            setTimeout(() => {
-                cursor.classList.remove('click');
-            }, 500);
+        // Add any necessary JavaScript for interactivity
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.05)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
         });
     </script>
 </body>
