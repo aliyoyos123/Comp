@@ -4,8 +4,8 @@
   <!-- Meta Information -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Injustice Edition: Futuristic Fortnite Hack featuring the classic hack tools with next-level animations, particle effects, and a professional design.">
-  <meta name="keywords" content="Fortnite hack, futuristic design, aimbot, ESP, advanced hack, particle effects, professional">
+  <meta name="description" content="Injustice Edition: Futuristic Fortnite Hack featuring classic hack features with next-level animations, professional design, and integrated PayPal payments.">
+  <meta name="keywords" content="Fortnite hack, futuristic design, aimbot, ESP, PayPal, professional animations, advanced hack">
   <meta name="author" content="Your Name">
   <title>Injustice Edition - Futuristic Fortnite Hack</title>
   
@@ -15,7 +15,7 @@
   <!-- Extensive CSS Styles -->
   <style>
     /* ==========================================================================
-       Global Styles and Variables
+       Global Variables & Reset
        ========================================================================== */
     :root {
       --primary-bg: #0e0e0e;
@@ -23,7 +23,7 @@
       --accent-color: #00ffc6;
       --accent-hover: #00e0b0;
       --text-color: #e0e0e0;
-      --card-bg: rgba(10, 10, 10, 0.8);
+      --card-bg: rgba(10, 10, 10, 0.85);
       --transition-speed: 0.4s;
     }
     *, *::before, *::after {
@@ -40,7 +40,7 @@
     }
     
     /* ==========================================================================
-       Particle Canvas Background (Header)
+       Particle Canvas Background
        ========================================================================== */
     #particleCanvas {
       position: fixed;
@@ -48,12 +48,38 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -2;
+      z-index: -3;
       background: var(--primary-bg);
     }
     
     /* ==========================================================================
-       Header Section
+       Navigation Bar
+       ========================================================================== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+      backdrop-filter: blur(5px);
+    }
+    nav a {
+      margin: 0 25px;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color var(--transition-speed);
+    }
+    nav a:hover {
+      color: var(--accent-color);
+    }
+    
+    /* ==========================================================================
+       Header Section with Advanced Animations
        ========================================================================== */
     header {
       position: relative;
@@ -72,8 +98,8 @@
     header h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 4rem;
-      text-shadow: 0 0 20px var(--accent-color);
       margin-bottom: 20px;
+      text-shadow: 0 0 20px var(--accent-color);
     }
     header p {
       font-size: 1.5rem;
@@ -94,37 +120,12 @@
     }
     
     /* ==========================================================================
-       Navigation Bar
-       ========================================================================== */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-    nav a {
-      margin: 0 20px;
-      font-family: 'Orbitron', sans-serif;
-      color: var(--text-color);
-      text-decoration: none;
-      transition: color var(--transition-speed);
-      font-size: 1rem;
-    }
-    nav a:hover {
-      color: var(--accent-color);
-    }
-    
-    /* ==========================================================================
-       Main Content Layout
+       Main Content & Container
        ========================================================================== */
     .container {
       max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 20px 40px;
+      margin: 120px auto 40px;
+      padding: 20px;
     }
     main {
       background: var(--secondary-bg);
@@ -135,7 +136,7 @@
     }
     
     /* ==========================================================================
-       Section Titles and Dividers
+       Section Headings & Dividers
        ========================================================================== */
     section {
       margin-bottom: 60px;
@@ -151,16 +152,17 @@
     section h2::after {
       content: "";
       position: absolute;
-      width: 100px;
+      width: 120px;
       height: 4px;
       background: var(--accent-color);
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
+      animation: pulse 2s infinite;
     }
     
     /* ==========================================================================
-       Grid Layouts for Features, Pricing, and Contact
+       Grid Layout for Content Sections
        ========================================================================== */
     .grid-container {
       display: grid;
@@ -169,7 +171,7 @@
     }
     
     /* ==========================================================================
-       Feature Cards (Same Old Hack Features with New Animation)
+       Feature Cards (Revived Classic Hack Features)
        ========================================================================== */
     .feature-card {
       background: var(--card-bg);
@@ -209,7 +211,7 @@
     }
     
     /* ==========================================================================
-       Pricing Cards
+       Pricing Cards with PayPal Integration
        ========================================================================== */
     .price-card {
       background: var(--card-bg);
@@ -234,12 +236,27 @@
       font-size: 1.5rem;
       margin-bottom: 20px;
     }
-    .price-card a.btn {
+    .price-card form {
       margin-top: 10px;
+    }
+    .price-card input[type="hidden"] { display: none; }
+    .price-card button.btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border: 2px solid var(--accent-color);
+      background: transparent;
+      color: var(--accent-color);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background var(--transition-speed), color var(--transition-speed);
+    }
+    .price-card button.btn:hover {
+      background: var(--accent-color);
+      color: var(--primary-bg);
     }
     
     /* ==========================================================================
-       Contact Section
+       Contact Section (with Support Email & Discord)
        ========================================================================== */
     .contact-info p {
       font-size: 1.2rem;
@@ -285,23 +302,14 @@
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
-    
-    /* ==========================================================================
-       Responsive Media Queries
-       ========================================================================== */
-    @media (max-width: 768px) {
-      header h1 { font-size: 3rem; }
-      header p { font-size: 1.2rem; }
-      nav a { margin: 0 10px; }
-      section h2 { font-size: 2rem; }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
     }
     
     /* ==========================================================================
-       EXTRAS: Additional dummy code to simulate a large, professional codebase.
-       (You can replace or expand on these sections with more modular code.)
+       Extras: Dummy Utility Code (Simulating Thousands of Lines)
        ========================================================================== */
-       
-    /* Animation for decorative elements */
     .deco-line {
       width: 100%;
       height: 2px;
@@ -309,14 +317,7 @@
       margin: 30px 0;
       animation: pulse 2s infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
-    
-    /* Dummy classes to simulate extra functionality */
     .dummy-component {
-      /* Imagine hundreds of lines of utility classes here... */
       padding: 10px;
       border: 1px dashed var(--accent-color);
       margin: 10px 0;
@@ -325,12 +326,16 @@
       background: rgba(0, 255, 198, 0.1);
     }
     
-    /* End of extensive CSS */
-    
+    @media (max-width: 768px) {
+      header h1 { font-size: 3rem; }
+      header p { font-size: 1.2rem; }
+      nav a { margin: 0 15px; }
+      section h2 { font-size: 2rem; }
+    }
   </style>
 </head>
 <body>
-  <!-- Canvas for Particle Animation in Background -->
+  <!-- Particle Animation Canvas -->
   <canvas id="particleCanvas"></canvas>
   
   <!-- Navigation Bar -->
@@ -340,24 +345,22 @@
     <a href="#contact">Contact</a>
   </nav>
   
-  <!-- Header with Animated Content -->
+  <!-- Header Section -->
   <header>
     <div class="header-content">
       <h1>Injustice Edition</h1>
-      <p>Futuristic Fortnite Hack – Classic Features, Next-Level Animation</p>
-      <a href="#features" class="btn">Explore Now</a>
+      <p>Futuristic Fortnite Hack – Classic Features with Next-Level Animation</p>
+      <a href="#features" class="btn">Explore Features</a>
     </div>
   </header>
   
-  <!-- Main Content Container -->
+  <!-- Main Container -->
   <div class="container">
     <main>
-      
-      <!-- Features Section (Classic Hack Features) -->
+      <!-- Features Section -->
       <section id="features">
         <h2>Hack Features</h2>
         <div class="grid-container">
-          <!-- Aimbot Features -->
           <div class="feature-card">
             <h3>Aimbot</h3>
             <ul>
@@ -370,20 +373,18 @@
               <li>Auto Fire for Instant Shots</li>
             </ul>
           </div>
-          <!-- ESP Features -->
           <div class="feature-card">
             <h3>Advanced ESP</h3>
             <ul>
-              <li>Box Overlay (Corner & Full Box)</li>
+              <li>Box Overlay (Corner & Full)</li>
               <li>Skeleton Modes (Bezier, Sharp)</li>
               <li>Snaplines (Centre, Top, Bottom)</li>
               <li>Color Customization</li>
               <li>Radar with Dynamic Settings</li>
-              <li>Health, Shield, and Distance Indicators</li>
-              <li>Wallhack & Player Name Display</li>
+              <li>Health, Shield, & Distance Indicators</li>
+              <li>Wallhack & Player Names</li>
             </ul>
           </div>
-          <!-- Item ESP Features -->
           <div class="feature-card">
             <h3>Item ESP</h3>
             <ul>
@@ -393,7 +394,6 @@
               <li>Clear Health & Ammo Box Indicators</li>
             </ul>
           </div>
-          <!-- Additional Features -->
           <div class="feature-card">
             <h3>Additional Exploits</h3>
             <ul>
@@ -409,58 +409,86 @@
         </div>
       </section>
       
-      <!-- Pricing Section -->
+      <!-- Pricing Section with PayPal Payment Forms -->
       <section id="pricing">
         <h2>Pricing Plans</h2>
         <div class="grid-container">
+          <!-- Free Trial pricing card now uses the download link you provided -->
           <div class="price-card">
             <h3>Free Trial</h3>
             <p>48 Hours</p>
-            <a href="#" class="btn">Get Now</a>
+            <a href="https://github.com/aliyoyos123/Comp/raw/refs/heads/main/MysticTrxFortnite.exe" class="btn" target="_blank">Get Now</a>
           </div>
           <div class="price-card">
             <h3>1 Day</h3>
             <p>$5</p>
-            <a href="#" class="btn">Buy Now</a>
+            <form action="https://www.paypal.me/MysticTrx" method="post" target="_blank">
+              <input type="hidden" name="business" value="jfjjehr57@gmail.com">
+              <input type="hidden" name="cmd" value="_xclick">
+              <input type="hidden" name="item_name" value="Fortnite Hack 1 Day">
+              <input type="hidden" name="amount" value="5.00">
+              <input type="hidden" name="currency_code" value="USD">
+              <button type="submit" class="btn">Buy Now</button>
+            </form>
           </div>
           <div class="price-card">
             <h3>1 Month</h3>
             <p>$10</p>
-            <a href="#" class="btn">Buy Now</a>
+            <form action="https://www.paypal.me/MysticTrx" method="post" target="_blank">
+              <input type="hidden" name="business" value="jfjjehr57@gmail.com">
+              <input type="hidden" name="cmd" value="_xclick">
+              <input type="hidden" name="item_name" value="Fortnite Hack 1 Month">
+              <input type="hidden" name="amount" value="10.00">
+              <input type="hidden" name="currency_code" value="USD">
+              <button type="submit" class="btn">Buy Now</button>
+            </form>
           </div>
           <div class="price-card">
             <h3>3 Months</h3>
             <p>$15</p>
-            <a href="#" class="btn">Buy Now</a>
+            <form action="https://www.paypal.me/MysticTrx" method="post" target="_blank">
+              <input type="hidden" name="business" value="jfjjehr57@gmail.com">
+              <input type="hidden" name="cmd" value="_xclick">
+              <input type="hidden" name="item_name" value="Fortnite Hack 3 Months">
+              <input type="hidden" name="amount" value="15.00">
+              <input type="hidden" name="currency_code" value="USD">
+              <button type="submit" class="btn">Buy Now</button>
+            </form>
           </div>
           <div class="price-card">
             <h3>Lifetime</h3>
             <p>$50</p>
-            <a href="#" class="btn">Buy Now</a>
+            <form action="https://www.paypal.me/MysticTrx" method="post" target="_blank">
+              <input type="hidden" name="business" value="jfjjehr57@gmail.com">
+              <input type="hidden" name="cmd" value="_xclick">
+              <input type="hidden" name="item_name" value="Fortnite Hack Lifetime">
+              <input type="hidden" name="amount" value="50.00">
+              <input type="hidden" name="currency_code" value="USD">
+              <button type="submit" class="btn">Buy Now</button>
+            </form>
           </div>
         </div>
       </section>
       
-      <!-- Contact Section -->
+      <!-- Contact Section with Support Email & Discord Link -->
       <section id="contact">
         <h2>Contact & Support</h2>
-        <div class="contact-info grid-container">
+        <div class="grid-container contact-info">
           <div>
-            <p>Email: <a href="mailto:support@fortnitehack.com">support@fortnitehack.com</a></p>
+            <p>PayPal: <a href="mailto:jfjjehr57@gmail.com">jfjjehr57@gmail.com</a></p>
           </div>
           <div>
-            <p>Discord: <a href="https://discord.com" target="_blank" rel="noopener noreferrer">@FortniteHackSupport</a></p>
+            <p>Discord: <a href="https://discord.gg/xbqJp59EwD" target="_blank" rel="noopener noreferrer">Join Our Server</a></p>
           </div>
         </div>
       </section>
       
       <!-- Dummy Section to Simulate Extended Codebase -->
       <section id="dummy">
-        <h2>Additional Modules</h2>
+        <h2>Facts about cheat </h2>
         <div class="dummy-component">
-          <p>This section represents hundreds of lines of extra code for professional modules, analytics, performance tracking, API integrations, security modules, logging systems, and more.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum, metus sed hendrerit condimentum, magna eros tempus purus, vitae fermentum sapien sapien nec dolor. Cras porta aliquet sapien, a dapibus nisi fermentum non.</p>
-          <!-- Imagine many more lines of code here -->
+          <p>if you want to buy any product go to the PayPal and purchase and open ticket in Boot Ticket and order your cheat. </p>
+          <p>Management is accountable for anything that happens, just go ahead and open your ticed in discord server and explain your problem. </p>
         </div>
       </section>
       
@@ -473,18 +501,17 @@
   </footer>
   
   <!-- ==========================================================================
-       JavaScript Section: Advanced Animations, Particle Effects, and Interaction
+       JavaScript Section: Advanced Animations, Particle Effects, and Interactivity
        ========================================================================== -->
   <script>
-    // ==========================================================================
-    // Particle Animation on Canvas (Simple Particle System)
-    // ==========================================================================
+    /* -------------------------------
+       Particle Animation on Canvas
+    ------------------------------- */
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
-    const numberOfParticles = 200;
+    const numberOfParticles = 250;
     
-    // Resize canvas
     function initCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -492,19 +519,17 @@
     window.addEventListener('resize', initCanvas);
     initCanvas();
     
-    // Particle Class Definition
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 3 + 1;
-        this.speedX = (Math.random() * 0.5) - 0.25;
-        this.speedY = (Math.random() * 0.5) - 0.25;
+        this.speedX = (Math.random() - 0.5) * 0.6;
+        this.speedY = (Math.random() - 0.5) * 0.6;
       }
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        // Wrap around edges
         if (this.x < 0) this.x = canvas.width;
         if (this.x > canvas.width) this.x = 0;
         if (this.y < 0) this.y = canvas.height;
@@ -518,7 +543,6 @@
       }
     }
     
-    // Initialize Particles
     function initParticles() {
       particlesArray = [];
       for (let i = 0; i < numberOfParticles; i++) {
@@ -527,7 +551,6 @@
     }
     initParticles();
     
-    // Animate Particles
     function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particlesArray.forEach(particle => {
@@ -538,19 +561,17 @@
     }
     animateParticles();
     
-    // ==========================================================================
-    // Scroll Animation using Intersection Observer
-    // ==========================================================================
+    /* -------------------------------
+       Intersection Observer for Scroll Animations
+    ------------------------------- */
     const featureCards = document.querySelectorAll('.feature-card');
     const priceCards = document.querySelectorAll('.price-card');
     
-    const observerOptions = {
-      threshold: 0.3
-    };
+    const observerOptions = { threshold: 0.3 };
     
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if(entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
@@ -560,57 +581,35 @@
     featureCards.forEach(card => observer.observe(card));
     priceCards.forEach(card => observer.observe(card));
     
-    // ==========================================================================
-    // Additional Dummy JavaScript Modules
-    // (Imagine these modules contain thousands of lines of code)
-    // ==========================================================================
-    
-    // Dummy Analytics Module
+    /* -------------------------------
+       Dummy Modules (Simulated Extended Codebase)
+    ------------------------------- */
     const AnalyticsModule = {
-      init: function() {
-        console.log("Analytics Initialized");
-        // Imagine extensive analytics code here...
-      },
-      trackEvent: function(eventName, data) {
-        console.log(`Tracking Event: ${eventName}`, data);
-      }
+      init: function() { console.log("Analytics Initialized"); },
+      trackEvent: function(eventName, data) { console.log(`Tracking: ${eventName}`, data); }
     };
     AnalyticsModule.init();
     
-    // Dummy Security Module
     const SecurityModule = {
-      verifyUser: function() {
-        // Extensive security verification code...
-        return true;
-      }
+      verifyUser: function() { return true; }
     };
     
-    // Dummy API Integration Module
-    const APIIntegration = {
-      fetchData: async function(url) {
-        try {
-          let response = await fetch(url);
-          let data = await response.json();
-          return data;
-        } catch (error) {
-          console.error("API Error:", error);
-        }
+    async function fetchData(url) {
+      try {
+        const response = await fetch(url);
+        return await response.json();
+      } catch (error) {
+        console.error("API Error:", error);
       }
-    };
+    }
     
-    // Additional functions simulating a huge codebase
     function dummyFunction() {
-      // This function is a placeholder for thousands of lines of business logic.
-      for (let i = 0; i < 1000; i++) {
-        // Imagine complex processing here...
+      for (let i = 0; i < 500; i++) {
         console.log("Processing line", i);
       }
     }
     dummyFunction();
-    
-    // End of Additional Dummy Modules
   </script>
-  <!-- End JavaScript Section -->
-  
+  <!-- End of JavaScript Section -->
 </body>
 </html>
